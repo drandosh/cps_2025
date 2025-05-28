@@ -1,5 +1,6 @@
 import csv
 
+
 class DataStorage:
     _file_name = 'messung.csv'
 
