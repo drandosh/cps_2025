@@ -24,7 +24,8 @@ class DataStorageService:
     def __append(data: SensorData):
         with open('data_with_headers.csv', mode='a', newline='') as file:
             writer = csv.writer(file)
-            writer.writerows(data.to_array())
+            writer.writerow(data.to_array())
+            print('data written to csv')
 
     def __get_humidity(self) -> float:
         try:
