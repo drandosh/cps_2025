@@ -22,9 +22,10 @@ class DataStorageService:
         return SensorData(temp, humidity, pressure)
 
     def __append(self, data: SensorData):
+        exists = os.path.exists(self.__file_name)
         with open(self.__file_name, mode='a', newline='') as file:
             writer = csv.writer(file)
-            if os.path.exists(self.__file_name):
+            if not exists:
                 writer.writerow(self.__file_headers)
             writer.writerow(data.to_array())
             print(f'data written to {self.__file_name}')
