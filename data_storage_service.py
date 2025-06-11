@@ -1,4 +1,5 @@
 import csv
+import os
 
 from models import SensorData
 
@@ -22,8 +23,12 @@ class DataStorageService:
 
     @staticmethod
     def __append(data: SensorData):
+        file_exists = os.path.isfile(DataStorageService._file_name)
         with open(DataStorageService._file_name, mode='a', newline='') as file:
             writer = csv.writer(file)
+
+            if not file_exists:
+                writer.writerow(DataStorageService._file_headers)
             writer.writerow(data.to_array())
             print('data written to csv')
 
