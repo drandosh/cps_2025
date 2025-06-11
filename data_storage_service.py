@@ -7,7 +7,7 @@ from models import SensorData
 class DataStorageService:
     _file_name = 'messung.csv'
     _file_headers = ['Timestamp', 'Temperatur (Celsius)', 'Temperatur (Fahrenheit)', 'Luftfeuchtigkeit', 'Luftdruck']
-    _sensor_path = '/sys/bus/iio/devices/iio:\\device0'
+    _sensor_path = '/sys/bus/iio/devices/iio:device0'
     _temp_file_path = '/in_temp_input'
     _humidity_file_path = '/in_humidityrelative_input'
     _pressure_file_path = '/in_pressure_input'
