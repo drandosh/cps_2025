@@ -19,14 +19,15 @@ def kick_watchdog():
 def run():
     data_storage_service = DataStorageService()
     fan = Fan()
+    temp = 19
     print('Running...')
     while True:
         #data = data_storage_service.read()
         #data_storage_service.store(data)
         #print_sensor_data(data)
-        fan.control(21)
-
-        kick_watchdog()
+        fan.control(temp)
+        temp = temp + 1
+        #kick_watchdog()
         time.sleep(10)
 
 
