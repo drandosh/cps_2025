@@ -1,6 +1,7 @@
+from fan import Fan
 from models import SensorData
 from data_storage_service import DataStorageService
-
+import time
 
 def print_sensor_data(data: SensorData) -> None:
     print(f'============={data.timestamp.strftime("%d-%m-%Y %H:%M:%S")}=============')
@@ -10,13 +11,23 @@ def print_sensor_data(data: SensorData) -> None:
     print(f'Luftfeuchtigkeit: {data.humidity}')
     print()
 
+def kick_watchdog():
+    with open( '/dev/watchdog', 'w') as wd:
+        wd.write( '1' )
+        wd.flush()
 
 def run():
-    print('Running...')
     data_storage_service = DataStorageService()
-    data = data_storage_service.read()
-    data_storage_service.store(data)
-    print_sensor_data(data)
+    fan = Fan()
+    print('Running...')
+    while True:
+        #data = data_storage_service.read()
+        #data_storage_service.store(data)
+        #print_sensor_data(data)
+        fan.control(21)
+
+        kick_watchdog()
+        time.sleep(10)
 
 
 def main():

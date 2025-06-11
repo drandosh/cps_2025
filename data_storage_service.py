@@ -22,7 +22,7 @@ class DataStorageService:
 
     @staticmethod
     def __append(data: SensorData):
-        with open('data_with_headers.csv', mode='a', newline='') as file:
+        with open(DataStorageService._file_name, mode='a', newline='') as file:
             writer = csv.writer(file)
             writer.writerow(data.to_array())
             print('data written to csv')
