@@ -27,6 +27,7 @@ def run():
         #print_sensor_data(data)
         fan.control(temp)
         temp = temp + 1
+        print(temp)
         #kick_watchdog()
         time.sleep(10)
 
