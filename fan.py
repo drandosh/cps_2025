@@ -17,7 +17,7 @@ class Fan:
         except subprocess.CalledProcessError as e:
             print("Error executing command:", e.stderr)
     def stop(self):
-        command = ["raspi-gpio set", "18", "dh"]
+        command = ["raspi-gpio set", "18", "dl"]
         try:
             result = subprocess.run(command, check=True, text=True, capture_output=True)
             print("Command output:", result.stdout)

@@ -22,12 +22,12 @@ def run():
     temp = 19
     print('Running...')
     while True:
-        #data = data_storage_service.read()
-        #data_storage_service.store(data)
-        #print_sensor_data(data)
-        fan.control(temp)
-        temp = temp + 1
-        print(temp)
+        data = data_storage_service.read()
+        data_storage_service.store(data)
+        print_sensor_data(data)
+        #fan.control(temp)
+        #temp = temp + 1
+        #print(temp)
         #kick_watchdog()
         time.sleep(10)
 
