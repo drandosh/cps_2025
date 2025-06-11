@@ -18,7 +18,7 @@ def kick_watchdog():
 
 def run():
     data_storage_service = DataStorageService()
-    fan = Fan()
+    #fan = Fan()
     temp = 19
     print('Running...')
     while True:
