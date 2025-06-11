@@ -14,9 +14,9 @@ def print_sensor_data(data: SensorData) -> None:
 def run():
     print('Running...')
     data_storage_service = DataStorageService()
-    mock_data = SensorData(27790.0000, 25216.7968700, 100.92763)
-    data_storage_service.store(mock_data)
-    print_sensor_data(mock_data)
+    data = data_storage_service.read()
+    data_storage_service.store(data)
+    print_sensor_data(data)
 
 
 def main():

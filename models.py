@@ -14,7 +14,7 @@ class SensorData:
 
     def to_array(self):
         return [
-            self.timestamp,
+            self.timestamp.isoformat(),
             self.temperature_celsius,
             self.temperature_fahrenheit,
             self.humidity,
